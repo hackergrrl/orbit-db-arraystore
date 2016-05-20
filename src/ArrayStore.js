@@ -1,12 +1,12 @@
 'use strict';
 
-const Store         = require('orbit-db-store');
-const KeyValueIndex = require('./KeyValueIndex');
+const Store = require('orbit-db-store');
+const ArrayIndex = require('./ArrayIndex');
 
-class KeyValueStore extends Store {
+class ArrayStore extends Store {
   constructor(ipfs, id, dbname, options) {
     if(!options) options = {};
-    if(!options.Index) Object.assign(options, { Index: KeyValueIndex });
+    if(!options.Index) Object.assign(options, { Index: ArrayIndex });
     super(ipfs, id, dbname, options)
   }
 
@@ -41,4 +41,4 @@ class KeyValueStore extends Store {
   }
 }
 
-module.exports = KeyValueStore;
+module.exports = ArrayStore;

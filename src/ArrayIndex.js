@@ -1,6 +1,6 @@
 'use strict';
 
-class KeyValueIndex {
+class ArrayIndex {
   constructor() {
     this._index = {};
   }
@@ -24,4 +24,4 @@ class KeyValueIndex {
   }
 }
 
-module.exports = KeyValueIndex;
+module.exports = ArrayIndex;
