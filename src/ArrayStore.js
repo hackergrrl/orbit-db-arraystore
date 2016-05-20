@@ -10,33 +10,21 @@ class ArrayStore extends Store {
     super(ipfs, id, dbname, options)
   }
 
-  get (key) {
-    return this._index.get(key)
+  get (id) {
+    return this._index.get(id)
   }
 
-  set (key, data) {
-    this.put(key, data)
-  }
-
-  put (key, data) {
+  insert (data, before, after) {
+    // TODO: deduce id
+    var id = ''
     return this._addOperation({
-      op: 'PUT',
-      key: key,
+      op: 'INSERT',
+      // TODO: can these be any values I want? (or must be key, value)
+      // TODO: let before/after have defaults
       value: data,
-      meta: {
-        ts: new Date().getTime()
-      }
-    })
-  }
-
-  del (key) {
-    return this._addOperation({
-      op: 'DEL',
-      key: key,
-      value: null,
-      meta: {
-        ts: new Date().getTime()
-      }
+      id: id,
+      before: before,
+      after: after
     })
   }
 }

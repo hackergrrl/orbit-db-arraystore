@@ -9,14 +9,13 @@ class ArrayIndex {
     return this._index[key]
   }
 
+  // TODO: these entries NEED to be sorted by id (bisecting sort)
   updateIndex (oplog, added) {
     added.reverse().reduce((handled, item) => {
       if (handled.indexOf(item.payload.key) === -1) {
         handled.push(item.payload.key)
-        if (item.payload.op === 'PUT') {
-          this._index[item.payload.key] = item.payload.value
-        } else if (item.payload.op === 'DEL') {
-          delete this._index[item.payload.key]
+        if (item.payload.op === 'INSERT') {
+          this._index[item.payload.id] = item.payload.value
         }
       }
       return handled
