@@ -1,0 +1,19 @@
+{
+  "name": "orbit-db-arraystore",
+  "version": "0.0.0",
+  "description": "array primitive atop orbit-db",
+  "main": "src/ArrayStore.js",
+  "dependencies": {
+    "orbit-db-store": "0.0.10"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noffle/orbit-db-arraystore.git"
+  },
+  "author": "Stephen Whitmore (@noffle)",
+  "license": "ISC",
+  "homepage": "https://github.com/noffle/orbit-db-arraystore"
+}
