@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-const Store = require('orbit-db-store');
-const ArrayIndex = require('./ArrayIndex');
+const Store = require('orbit-db-store')
+const ArrayIndex = require('./ArrayIndex')
 
 class ArrayStore extends Store {
-  constructor(ipfs, id, dbname, options) {
-    if(!options) options = {};
-    if(!options.Index) Object.assign(options, { Index: ArrayIndex });
+  constructor (ipfs, id, dbname, options) {
+    if (!options) options = {}
+    if (!options.Index) Object.assign(options, { Index: ArrayIndex })
     super(ipfs, id, dbname, options)
   }
 
-  get(key) {
-    return this._index.get(key);
+  get (key) {
+    return this._index.get(key)
   }
 
-  set(key, data) {
-    this.put(key, data);
+  set (key, data) {
+    this.put(key, data)
   }
 
-  put(key, data) {
+  put (key, data) {
     return this._addOperation({
       op: 'PUT',
       key: key,
@@ -26,10 +26,10 @@ class ArrayStore extends Store {
       meta: {
         ts: new Date().getTime()
       }
-    });
+    })
   }
 
-  del(key) {
+  del (key) {
     return this._addOperation({
       op: 'DEL',
       key: key,
@@ -37,8 +37,8 @@ class ArrayStore extends Store {
       meta: {
         ts: new Date().getTime()
       }
-    });
+    })
   }
 }
 
-module.exports = ArrayStore;
+module.exports = ArrayStore

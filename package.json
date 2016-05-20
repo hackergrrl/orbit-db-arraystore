@@ -15,5 +15,8 @@
   },
   "author": "Stephen Whitmore (@noffle)",
   "license": "ISC",
-  "homepage": "https://github.com/noffle/orbit-db-arraystore"
+  "homepage": "https://github.com/noffle/orbit-db-arraystore",
+  "devDependencies": {
+    "standard": "^7.1.0"
+  }
 }
